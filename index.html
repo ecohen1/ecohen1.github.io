@@ -1,11 +1,10 @@
 <html>
 <head>
-<!-- <script src="https://use.fontawesome.com/ecb3b36fe0.js"></script> -->
-<link rel="stylesheet" href="./font-awesome/css/font-awesome.min.css">
-<script type="text/javascript" src="./jquery.min.js"></script>
+<link rel="stylesheet" href="./assets/css/font-awesome/css/font-awesome.min.css">
+<script type="text/javascript" src="./assets/js/jquery.min.js"></script>
 <style>
 body {
-	background-image: url('./me.png');
+	background-image: url('./assets/img/me.png');
 	background-size: cover;
 }
 #open-menu {
@@ -34,7 +33,7 @@ body {
 i {
 	margin-left: 44%;
 }
-#open-menu:hover, #close-menu:hover {
+#open-menu:hover, #close-menu:hover, #td-resume i, #resume, #td-portfolio i, #portfolio, #td-classes i, #classes, #td-linkedin i, #linkedin {
 	cursor: pointer;
 }
 .slide-up
@@ -51,9 +50,15 @@ i {
 	background-color: hsl(30, 100%, 65%);
 	border-radius: 20px;
 	position:fixed;
-    bottom:0px;
+    bottom:-1%;
     margin-left: 10%;
-    z-index: -1;
+    z-index: 0;
+    border-style: solid;
+    border-color: white;
+    border-width: 4px;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
 }
 .option {
 	color: white;
@@ -101,8 +106,13 @@ td {
 	margin-right: 10%;
 	padding-right: 10%;
 }
-#td:hover {
-	cursor: pointer;
+.noselect {
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none;   /* Chrome/Safari/Opera */
+  -khtml-user-select: none;    /* Konqueror */
+  -moz-user-select: none;      /* Firefox */
+  -ms-user-select: none;       /* Internet Explorer/Edge */
+  user-select: none;           /* Non-prefixed version, currently */
 }
 </style>
 </head>
@@ -113,7 +123,7 @@ td {
 	<div id="close-menu">
 		<i class="fa fa-angle-down" aria-hidden="true"></i>
 	</div>
-	<div id="expanded-menu">
+	<div id="expanded-menu" class="noselect">
 		<table>
 			<tr id="row1">
 				<td id="td-resume">
@@ -149,8 +159,32 @@ $(document).ready(function(){
 		closeMenu();
 	});
 
-	$('#td-resume').on('click',function(){
-		// window.location.href = "https://drive.google.com/file/d/0B31ueLWlMaKlUV9nNHdWVkhwRW8/view?usp=sharing";
+	$('#td-resume i').on('click',function(){
+		window.open("https://drive.google.com/file/d/0B31ueLWlMaKlUV9nNHdWVkhwRW8/view?usp=sharing", '_blank');
+	});
+	$('#resume').on('click',function(){
+		window.open("https://drive.google.com/file/d/0B31ueLWlMaKlUV9nNHdWVkhwRW8/view?usp=sharing", '_blank');
+	});
+
+	$('#td-portfolio i').on('click',function(){
+		window.open("https://ecohen1.github.io/views/portfolio.html", '_blank');
+	});
+	$('#portfolio').on('click',function(){
+		window.open("https://ecohen1.github.io/views/portfolio.html", '_blank');
+	});
+
+	$('#td-classes i').on('click',function(){
+		window.open("https://ecohen1.github.io/views/classes.html", '_blank');
+	});
+	$('#classes').on('click',function(){
+		window.open("https://ecohen1.github.io/views/classes.html", '_blank');
+	});
+
+	$('#td-linkedin i').on('click',function(){
+		window.open("https://www.linkedin.com/in/elitcohen", '_blank');
+	});
+	$('#linkedin').on('click',function(){
+		window.open("https://www.linkedin.com/in/elitcohen", '_blank');
 	});
 });
 
@@ -163,7 +197,7 @@ var openMenu = function () {
 
 var closeMenu = function () {
     $('#close-menu').css('visibility','hidden');
-    $('#expanded-menu').animate({height: '0%', 'bottom':'0%'},400,'swing',function(){
+    $('#expanded-menu').animate({height: '0%', 'bottom':'-1%'},400,'swing',function(){
 	    $('#open-menu').css('visibility','visible');    	
     });
 }
