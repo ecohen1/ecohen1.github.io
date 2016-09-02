@@ -1,0 +1,97 @@
+<html>
+<head>
+<!-- <script src="https://use.fontawesome.com/ecb3b36fe0.js"></script> -->
+<link rel="stylesheet" href="./font-awesome/css/font-awesome.min.css">
+<script type="text/javascript" src="./jquery.min.js"></script>
+<style>
+body {
+	background-image: url('./me.png');
+	background-size: cover;
+}
+#open-menu {
+	background-color: white;
+	border-top-left-radius: 10px;
+	border-top-right-radius: 10px;
+	width: 80px;
+	height: 20px;
+    position:fixed;
+    bottom:0%;
+    left:50%;
+}
+#close-menu {
+	background-color: white;
+	border-bottom-left-radius: 10px;
+	border-bottom-right-radius: 10px;
+	width: 80px;
+	height: 20px;
+    position:fixed;
+    bottom:calc(95% - 20px);
+    left:50%;
+    visibility: hidden;
+    z-index: 1;
+}
+i {
+	margin-left: 44%;
+}
+#open-menu:hover, #close-menu:hover {
+	cursor: pointer;
+}
+.slide-up
+{
+    bottom: 0px !important;
+}
+.slide-down
+{
+    bottom: -475px !important;
+}
+#expanded-menu {
+	height: 0%;
+	width: 80%;
+	background-color: #ffb366;
+	border-radius: 20px;
+	position:fixed;
+    bottom:0px;
+    margin-left: 10%;
+    z-index: -1;
+}
+</style>
+</head>
+<body>
+	<div id="open-menu">
+		<i class="fa fa-angle-up" aria-hidden="true"></i>
+	</div>
+	<div id="close-menu">
+		<i class="fa fa-angle-down" aria-hidden="true"></i>
+	</div>
+	<div id="expanded-menu">
+
+	</div>
+
+
+<script type="text/javascript">
+$(document).ready(function(){
+	$('#open-menu').on('click',function(){
+		openMenu();
+	});
+	$('#close-menu').on('click',function(){
+		closeMenu();
+	});
+});
+
+var openMenu = function () {
+    $('#open-menu').css('visibility','hidden');    	
+    $('#expanded-menu').animate({height: '90%', 'bottom':'5%'},800,'swing',function(){
+	    $('#close-menu').css('visibility','visible');
+	    // $('#expanded-menu').animate({'bottom':'5%'});
+    });
+}
+
+var closeMenu = function () {
+    $('#close-menu').css('visibility','hidden');
+    $('#expanded-menu').animate({height: '0%'},400,'swing',function(){
+	    $('#open-menu').css('visibility','visible');    	
+    });
+}
+</script>
+</body>
+</html>
