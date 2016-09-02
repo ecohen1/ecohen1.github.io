@@ -27,7 +27,7 @@ body {
 	width: 80px;
 	height: 20px;
     position:fixed;
-    bottom: calc(95% - 20px);
+    top: calc(10% + 10px);
 	left: calc(50% - 32px);
     visibility: hidden;
     z-index: 1;
@@ -52,7 +52,7 @@ i {
 	background-color: hsl(30, 100%, 65%);
 	border-radius: 20px;
 	position:fixed;
-    bottom:-1%;
+    top:101%;
     margin-left: 10%;
     z-index: 0;
     border-style: solid;
@@ -153,12 +153,12 @@ td {
 
 <script type="text/javascript">
 $(document).ready(function(){
-	$('#open-menu').on('click',function(){
-		openMenu();
+	$('#open-menu').on('click',function(e){
+		openMenu(e);
 	});
 	
-	$('#close-menu').on('click',function(){
-		closeMenu();
+	$('#close-menu').on('click',function(e){
+		closeMenu(e);
 	});
 
 	$('#td-resume i').on('click',function(){
@@ -190,16 +190,17 @@ $(document).ready(function(){
 	});
 });
 
-var openMenu = function () {
-    $('#open-menu').css('visibility','hidden');    	
-    $('#expanded-menu').animate({height: '90%', 'bottom':'5%'},400,'swing',function(){
+var openMenu = function (e) {
+    $('#open-menu').css('visibility','hidden');
+    $('#close-menu').css('top',String($(document).height()*.1+10));
+    $('#expanded-menu').animate({height: String($(document).height()*.8), 'top':String($(document).height()*.11)},400,'swing',function(){
 	    $('#close-menu').css('visibility','visible');
     });
 }
 
-var closeMenu = function () {
+var closeMenu = function (e) {
     $('#close-menu').css('visibility','hidden');
-    $('#expanded-menu').animate({height: '0%', 'bottom':'-1%'},400,'swing',function(){
+    $('#expanded-menu').animate({height: '0%', 'top':'101%'},400,'swing',function(){
 	    $('#open-menu').css('visibility','visible');    	
     });
 }
