@@ -31,7 +31,7 @@ body {
     visibility: hidden;
     z-index: 1;
 }
-i {
+#open-menu i, #close-menu i {
 	margin-left: 44%;
 }
 #open-menu:hover, #close-menu:hover, #td-resume i, #resume, #td-portfolio i, #portfolio, #td-classes i, #classes, #td-linkedin i, #linkedin {
@@ -63,7 +63,7 @@ i {
 }
 .option {
 	color: white;
-	font-size: 200px;
+	font-size: 500%;
 }
 table {
 	width:100%;
@@ -75,38 +75,33 @@ h1 {
 	color: white;
 	font-weight: bold;
 	font-family: Courier New;
+	width: 50%;
+	text-align: center;
 }
 #resume {
-	padding-left: 28%;
-	margin-left: 20%;
-	margin-right: 10%;
-	padding-bottom: 7%;
+	float: right;
+	margin-right: 25%;
 	border-bottom: thick solid white;
 }
 #portfolio {
-	float: right;
-	padding-right: 24%;
-	padding-left: 30%;
-	padding-bottom: 9%;
+	float: left;
+	margin-left: 25%;
 	border-bottom: thick solid white;
 }
+#resume p, #portfolio p{
+	margin-bottom: 20%;
+}
 #classes {
-	padding-left: 47%;
+	float: right;
+	margin-right: 25%;
 }
 #linkedin {
-	padding-left: 46%;
+	float: left;
+	margin-left: 25%;
 }
 td {
 	border-width: 4px;
 	width: 50%;
-}
-#td-portfolio {
-	margin-right: 10%;
-	padding-right: 10%;
-}
-#td-linkedin {
-	margin-right: 10%;
-	padding-right: 10%;
 }
 .noselect {
   -webkit-touch-callout: none; /* iOS Safari */
@@ -129,22 +124,34 @@ td {
 		<table>
 			<tr id="row1">
 				<td id="td-resume">
-					<i class="option fa fa-file-text" aria-hidden="true"></i>
-					<h1 id="resume">Resume</h1>
+					<h1 id="resume">
+						<i class="option fa fa-file-text" aria-hidden="true"></i>
+						<br>
+						<p>Resume</p>
+					</h1>
 				</td>
 				<td id="td-portfolio">
-					<i class="option fa fa-folder-open" aria-hidden="true"></i>
-					<h1 id="portfolio">Portfolio</h1>
+					<h1 id="portfolio">
+						<i class="option fa fa-folder-open" aria-hidden="true"></i>
+						<br>
+						<p>Portfolio</p>
+					</h1>
 				</td>
 			</tr>
 			<tr id="row2">
 				<td id="td-classes">
-					<i class="option fa fa-book" aria-hidden="true"></i>
-					<h1 id="classes">Classes</h1>
+					<h1 id="classes">
+						<i class="option fa fa-book" aria-hidden="true"></i>
+						<br>
+						<p>Classes</p>
+					</h1>
 				</td>
 				<td id="td-linkedin">
-					<i class="option fa fa-linkedin" aria-hidden="true"></i>
-					<h1 id="linkedin">LinkedIn</h1>
+					<h1 id="linkedin">
+						<i class="option fa fa-linkedin" aria-hidden="true"></i>
+						<br>
+						<p>LinkedIn</p>
+					</h1>
 				</td>
 			</tr>
 		</table>
@@ -191,11 +198,10 @@ $(document).ready(function(){
 });
 
 var openMenu = function (e) {
-    $('#open-menu').css('visibility','hidden');
-    $('#close-menu').css('top',String($(document).height()*.1+10));
-    $('#expanded-menu').animate({height: String($(document).height()*.8), 'top':String($(document).height()*.11)},400,'swing',function(){
+	$('#open-menu').css('visibility','hidden');
+	$('#expanded-menu').animate({height: String($(document).height()*.8), 'top':String($(document).height()*.11)},400,'swing',function(){
 	    $('#close-menu').css('visibility','visible');
-    });
+	});
 }
 
 var closeMenu = function (e) {
