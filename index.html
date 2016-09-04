@@ -149,6 +149,7 @@ h1 {
 
 <script type="text/javascript">
 $(document).ready(function(){
+
 	$('#open-menu').on('click',function(e){
 		openMenu(e);
 	});
@@ -192,6 +193,7 @@ $(document).ready(function(){
 });
 
 var openMenu = function (e) {
+	
 	$('#open-menu').css('visibility','hidden');
 	$('#expanded-menu').animate({
 		'height': '80%',
@@ -200,6 +202,9 @@ var openMenu = function (e) {
 		,400,'swing', function(){
 	    	$('#close-menu').css('visibility','visible');
 	});
+	$('h1 p').css('font-size',String($(document).height()*.05)+'px');
+	$('.option').css('font-size',String($(document).height()*.2)+'px');
+
 }
 
 var closeMenu = function (e) {
