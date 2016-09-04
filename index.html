@@ -2,6 +2,7 @@
 <head>
 <title>The Real Eli Cohen</title>
 <link rel="icon" href="./assets/img/icon.png">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <link rel="stylesheet" href="./assets/css/font-awesome/css/font-awesome.min.css">
 <script type="text/javascript" src="./assets/js/jquery.min.js"></script>
 <style>
@@ -18,7 +19,6 @@ body {
     position:fixed;
     bottom:0%;
 	left: calc(50% - 32px);
-
 }
 #close-menu {
 	background-color: white;
@@ -121,40 +121,32 @@ td {
 		<div id="close-menu">
 			<i class="fa fa-angle-down" aria-hidden="true"></i>
 		</div>
-		<table>
-			<tr id="row1">
-				<td id="td-resume">
-					<h1 id="resume">
-						<i class="option fa fa-file-text" aria-hidden="true"></i>
-						<br>
-						<p>Resume</p>
-					</h1>
-				</td>
-				<td id="td-portfolio">
-					<h1 id="portfolio">
-						<i class="option fa fa-folder-open" aria-hidden="true"></i>
-						<br>
-						<p>Portfolio</p>
-					</h1>
-				</td>
-			</tr>
-			<tr id="row2">
-				<td id="td-classes">
-					<h1 id="classes">
-						<i class="option fa fa-book" aria-hidden="true"></i>
-						<br>
-						<p>Classes</p>
-					</h1>
-				</td>
-				<td id="td-linkedin">
-					<h1 id="linkedin">
-						<i class="option fa fa-linkedin" aria-hidden="true"></i>
-						<br>
-						<p>LinkedIn</p>
-					</h1>
-				</td>
-			</tr>
-		</table>
+		<div class="row">
+			<div class="col-sm-6">
+				<h1 id="resume">
+					<i class="option fa fa-file-text" aria-hidden="true"></i>
+					<br>
+					<p>Resume</p>
+				</h1>
+				<h1 id="classes">
+					<i class="option fa fa-book" aria-hidden="true"></i>
+					<br>
+					<p>Classes</p>
+				</h1>
+			</div>
+			<div class="col-sm-6">
+				<h1 id="portfolio">
+					<i class="option fa fa-folder-open" aria-hidden="true"></i>
+					<br>
+					<p>Portfolio</p>
+				</h1>
+				<h1 id="linkedin">
+					<i class="option fa fa-linkedin" aria-hidden="true"></i>
+					<br>
+					<p>LinkedIn</p>
+				</h1>
+			</div>
+		</div>
 	</div>
 
 
@@ -199,8 +191,13 @@ $(document).ready(function(){
 
 var openMenu = function (e) {
 	$('#open-menu').css('visibility','hidden');
-	$('#expanded-menu').animate({height: String($(document).height()*.8), 'top':String($(document).height()*.11)},400,'swing',function(){
-	    $('#close-menu').css('visibility','visible');
+	$('#expanded-menu').animate({
+		height: String($(document).height()*.8),
+		'top':String($(document).height()*.11),
+		'scale': 'scaleY(0.5)'
+		}
+		,400,'swing', function(){
+	    	$('#close-menu').css('visibility','visible');
 	});
 }
 
