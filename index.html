@@ -50,9 +50,10 @@ body {
 	width: 80%;
 	background-color: hsl(30, 100%, 65%);
 	border-radius: 20px;
-	position:fixed;
+	position:absolute;
     top:101%;
     margin-left: 10%;
+    margin-right: 10%;
     z-index: 0;
     border-style: solid;
     border-color: white;
@@ -98,10 +99,6 @@ h1 {
 #linkedin {
 	float: left;
 	margin-left: 25%;
-}
-td {
-	border-width: 4px;
-	width: 50%;
 }
 .noselect {
   -webkit-touch-callout: none; /* iOS Safari */
@@ -187,14 +184,18 @@ $(document).ready(function(){
 	$('#linkedin').on('click',function(){
 		window.open("https://www.linkedin.com/in/elitcohen", '_blank');
 	});
+
+	$(window).resize(function(){
+    	$('h1 p').css('font-size',String($(document).height()*.05)+'px');
+    	$('.option').css('font-size',String($(document).height()*.2)+'px');
+	});
 });
 
 var openMenu = function (e) {
 	$('#open-menu').css('visibility','hidden');
 	$('#expanded-menu').animate({
-		height: String($(document).height()*.8),
-		'top':String($(document).height()*.11),
-		'scale': 'scaleY(0.5)'
+		'height': '80%',
+		'top': '12%'
 		}
 		,400,'swing', function(){
 	    	$('#close-menu').css('visibility','visible');
