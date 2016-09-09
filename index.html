@@ -9,6 +9,8 @@
 body {
 	background-image: url('./assets/img/me.png');
 	background-size: 100% 100%;
+	height: 100%;
+	width: 100%;
 }
 #open-menu {
 	background-color: white;
@@ -83,11 +85,13 @@ h1 {
 	float: right;
 	margin-right: 25%;
 	border-bottom: thick solid white;
+	visibility: hidden;
 }
 #portfolio {
 	float: left;
 	margin-left: 25%;
 	border-bottom: thick solid white;
+	visibility: hidden;
 }
 #resume p, #portfolio p{
 	margin-bottom: 20%;
@@ -95,10 +99,12 @@ h1 {
 #classes {
 	float: right;
 	margin-right: 25%;
+	visibility: hidden;
 }
 #linkedin {
 	float: left;
 	margin-left: 25%;
+	visibility: hidden;
 }
 .noselect {
   -webkit-touch-callout: none; /* iOS Safari */
@@ -107,6 +113,9 @@ h1 {
   -moz-user-select: none;      /* Firefox */
   -ms-user-select: none;       /* Internet Explorer/Edge */
   user-select: none;           /* Non-prefixed version, currently */
+}
+.col-sm-6, .row {
+	visibility: hidden;
 }
 </style>
 </head>
