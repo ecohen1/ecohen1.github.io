@@ -53,13 +53,13 @@ body {
 	background-color: hsl(30, 100%, 65%);
 	border-radius: 20px;
 	position:absolute;
-    top:101%;
+    top:0%;
     margin-left: 10%;
     margin-right: 10%;
     z-index: 0;
     border-style: solid;
     border-color: white;
-    border-width: 4px;
+    border-width: 0px;
     box-sizing: border-box;
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
@@ -86,6 +86,10 @@ h1 {
 	margin-right: 25%;
 	border-bottom: thick solid white;
 	visibility: hidden;
+}
+#resume p {
+	padding-top: 3%;
+	padding-right: 9%;
 }
 #portfolio {
 	float: left;
@@ -203,13 +207,18 @@ $(document).ready(function(){
 
 var openMenu = function (e) {
 	
-	$('#open-menu').css('visibility','visible');
+	$('#open-menu').css('visibility','hidden');
+	$('#expanded-menu').css('border-width','4px');
 	$('#expanded-menu').animate({
 		'height': '80%',
 		'top': '12%'
 		}
 		,400,'swing', function(){
 	    	$('#close-menu').css('visibility','visible');
+	    	$('#resume').css('visibility','visible');
+	    	$('#portfolio').css('visibility','visible');
+	    	$('#classes').css('visibility','visible');
+	    	$('#linkedin').css('visibility','visible');
 	});
 	$('h1 p').css('font-size',String($(document).height()*.05)+'px');
 	$('.option').css('font-size',String($(document).height()*.2)+'px');
@@ -219,7 +228,12 @@ var openMenu = function (e) {
 var closeMenu = function (e) {
     $('#close-menu').css('visibility','hidden');
     $('#expanded-menu').animate({height: '0%', 'top':'101%'},400,'swing',function(){
-	    $('#open-menu').css('visibility','visible');    	
+		$('#resume').css('visibility','hidden');
+		$('#portfolio').css('visibility','hidden');
+		$('#classes').css('visibility','hidden');
+		$('#linkedin').css('visibility','hidden');
+		$('#open-menu').css('visibility','visible');
+    	$('#expanded-menu').css({'top':'0%','border-width':'0px'});
     });
 }
 </script>
