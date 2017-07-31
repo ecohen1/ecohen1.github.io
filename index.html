@@ -19,7 +19,7 @@ body {
 	width: 80px;
 	height: 20px;
     position:fixed;
-    bottom:0%;
+    top:0%;
 	left: calc(50% - 32px);
 }
 #close-menu {
@@ -126,7 +126,7 @@ h1 {
 </head>
 <body>
 	<div id="open-menu">
-		<i class="fa fa-angle-up" aria-hidden="true"></i>
+		<i class="fa fa-angle-down" aria-hidden="true"></i>
 	</div>
 	<div id="expanded-menu" class="noselect">
 		<div id="close-menu">
@@ -162,6 +162,12 @@ h1 {
 
 
 <script type="text/javascript">
+
+var resumeLink = 'https://drive.google.com/file/d/0B9AJfFrD-RWlUUktSlF6RjRoRzA/view?usp=sharing',
+	linkedinLink = 'https://www.linkedin.com/in/elitcohen',
+	portfolioLink = 'https://ecohen1.github.io/views/portfolio.html',
+	classesLink = 'https://ecohen1.github.io/views/classes.html';
+
 $(document).ready(function(){
 
 	$('#open-menu').on('click',function(e){
@@ -173,31 +179,31 @@ $(document).ready(function(){
 	});
 
 	$('#td-resume i').on('click',function(){
-		window.open("https://drive.google.com/file/d/0B31ueLWlMaKlUV9nNHdWVkhwRW8/view?usp=sharing", '_blank');
+		window.open(resumeLink, '_blank');
 	});
 	$('#resume').on('click',function(){
-		window.open("https://drive.google.com/file/d/0B31ueLWlMaKlUV9nNHdWVkhwRW8/view?usp=sharing", '_blank');
+		window.open(resumeLink, '_blank');
 	});
 
 	$('#td-portfolio i').on('click',function(){
-		window.open("https://ecohen1.github.io/views/portfolio.html", '_blank');
+		window.open(portfolioLink, '_blank');
 	});
 	$('#portfolio').on('click',function(){
-		window.open("https://ecohen1.github.io/views/portfolio.html", '_blank');
+		window.open(portfolioLink, '_blank');
 	});
 
 	$('#td-classes i').on('click',function(){
-		window.open("https://ecohen1.github.io/views/classes.html", '_blank');
+		window.open(classesLink, '_blank');
 	});
 	$('#classes').on('click',function(){
-		window.open("https://ecohen1.github.io/views/classes.html", '_blank');
+		window.open(classesLink, '_blank');
 	});
 
 	$('#td-linkedin i').on('click',function(){
-		window.open("https://www.linkedin.com/in/elitcohen", '_blank');
+		window.open(linkedin, '_blank');
 	});
 	$('#linkedin').on('click',function(){
-		window.open("https://www.linkedin.com/in/elitcohen", '_blank');
+		window.open(linkedin, '_blank');
 	});
 
 	$(window).resize(function(){
